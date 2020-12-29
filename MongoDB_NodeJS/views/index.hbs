@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Hello world</h1>
+    <table border="1">
+        <thead>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Color</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            {{# each model}}
+            <tr>
+                <td>{{productName}}</td>
+                <td>{{price}}</td>
+                <td>{{color}}</td>
+                <td>
+                    <a href="/edit?id={{_id}}">Edit</a>
+                    <a href="#">Delete</a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <form action="/doSearch" method="post">
+        Name <input type="text" name="txtName">
+        <br>
+        <input type="submit" value="Search">
+    </form>
+    {{> footer}}
+</body>
+
+</html>
